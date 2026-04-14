@@ -75,11 +75,10 @@ cd PoseGuard
 ```bash
 pip install opencv-python mediapipe==0.10.14 numpy scikit-learn pandas pyttsx3 groq
 ```
-
-**3. Add your Groq API key in `chatbot.py`:**
-```python
-GROQ_API_KEY = "your_gsk_key_here"
-```
+**3. Setup Groq API Key (Environment Variable):**
+```bash
+# Windows PowerShell
+setx GROQ_API_KEY "your_api_key_here"
 
 **4. Train the model:**
 ```bash
