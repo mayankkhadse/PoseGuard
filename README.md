@@ -1,6 +1,13 @@
 # PoseGuard — AI Gym Posture Detection System
 
+
+![Demo](screenshots/webcam.gif)
+
+---
+
 > Real-time AI + ML gym posture detection using MediaPipe and Random Forest. Detects 4 exercises with live audio feedback and an AI fitness chatbot.
+
+> 📱 Mobile demo supported via Streamlit dashboard (open on phone via local network)
 
 ---
 
@@ -11,6 +18,28 @@
 - **Audio Feedback** — speaks corrections aloud when posture is wrong
 - **FitBot AI Chatbot** — ask any workout question powered by Groq AI
 - **86%+ Accuracy** — trained on real dataset of 100,000+ samples
+
+---
+
+## 🎥 Live Demo
+
+### 📊 Dashboard Overview
+![Dashboard](screenshots/dashboard.gif)
+
+---
+
+### 🤖 FitBot Chatbot
+![Chatbot](screenshots/chatbot.gif)
+
+---
+
+### 📹 Posture Detection (Webcam)
+![Webcam](screenshots/webcam.gif)
+
+---
+
+### ℹ️ About Section
+![About](screenshots/about.gif)
 
 ---
 
@@ -43,20 +72,21 @@
 ```
 PoseGuard/
 ├── Dataset/
-│   ├── squat/          ← image dataset (train/test)
-│   ├── bicepcurl/      ← CSV landmark data
-│   ├── plank/          ← CSV landmark data
-│   └── lunge/          ← CSV landmark data
 ├── models/
-│   └── poseguard_model.pkl  ← trained ML model
+│ └── poseguard_model.pkl
 ├── utils/
-│   ├── pose_detector.py
-│   ├── exercise_classifier.py
-│   └── audio_feedback.py
-├── main.py             ← run this to start
-├── poseguard.py        ← single file version
-├── chatbot.py          ← Groq AI chatbot
-├── train_model.py      ← retrain the ML model
+│ ├── pose_detector.py
+│ ├── exercise_classifier.py
+│ └── audio_feedback.py
+├── screenshots/
+│ ├── dashboard.gif
+│ ├── chatbot.gif
+│ ├── webcam.gif
+│ └── about.gif
+├── main.py
+├── app.py
+├── chatbot.py
+├── train_model.py
 ├── requirements.txt
 └── README.md
 ```

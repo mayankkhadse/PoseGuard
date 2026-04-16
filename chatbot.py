@@ -1,7 +1,12 @@
 import os
 from groq import Groq
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+api_key = os.getenv("GROQ_API_KEY")
+
+if not api_key:
+    raise ValueError("GROQ_API_KEY not set. Please set the environment variable before running the app.")
+
+client = Groq(api_key=api_key)
 chat_history = []
 
 SYSTEM_PROMPT = """You are FitBot, an expert AI fitness coach built into PoseGuard.
@@ -13,7 +18,7 @@ def ask_fitbot(question):
 
     try:
         response = client.chat.completions.create(
-            model="llama3-8b-8192",
+            model="llama-3.1-8b-instant",
             messages=[{"role": "system", "content": SYSTEM_PROMPT}] + chat_history[-6:],
             max_tokens=150,
         )
