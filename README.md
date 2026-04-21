@@ -1,4 +1,5 @@
-# PoseGuard — AI Gym Posture Detection System
+<!-- Animated Header -->
+<h1 align="center">💼 PoseGuard — AI Gym Posture Detection System</h1>#
 
 
 ![Demo](screenshots/webcam.gif)
