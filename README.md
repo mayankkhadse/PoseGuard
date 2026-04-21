@@ -1,5 +1,13 @@
 <!-- Animated Header -->
-<h1 align="center">🏋️‍♂️ PoseGuard — AI Gym Posture Detection System</h1>#
+<h1 align="center">🏋️‍♂️ PoseGuard – AI Gym Posture Detection System</h1>
+
+<p align="center">
+  🤖 Real-time posture detection using AI & Computer Vision
+</p>
+
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=00FFAB&center=true&vCenter=true&width=700&lines=AI+Gym+Posture+Detection;Real-Time+Exercise+Analysis;Built+with+MediaPipe+%2B+ML;Prevent+Injuries+%26+Improve+Form" />
+</p>
 
 
 ![Demo](screenshots/webcam.gif)
