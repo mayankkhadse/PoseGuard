@@ -129,6 +129,16 @@ py -3.11 train_model.py
 py -3.11 main.py
 ```
 
+**Run with Streamlit (recommended for the dashboard):**
+```bash
+# activate your Python environment if you use one
+pip install -r requirements.txt
+# then run the Streamlit dashboard
+streamlit run app.py
+```
+
+The Streamlit dashboard will open at http://localhost:8501 by default. Use this to access the Live Demo and FitBot UI.
+
 ---
 
 ## Controls
