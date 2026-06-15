@@ -112,12 +112,19 @@ cd PoseGuard
 
 **2. Install dependencies:**
 ```bash
-pip install opencv-python mediapipe==0.10.14 numpy scikit-learn pandas pyttsx3 groq
+pip install -r requirements.txt
 ```
+
+**If you want the full local feature set (audio + FitBot), use:**
+```bash
+pip install -r requirements-local.txt
+```
+
 **3. Setup Groq API Key (Environment Variable):**
 ```bash
 # Windows PowerShell
 setx GROQ_API_KEY "your_api_key_here"
+```
 
 **4. Train the model:**
 ```bash
@@ -138,6 +145,8 @@ streamlit run app.py
 ```
 
 The Streamlit dashboard will open at http://localhost:8501 by default. Use this to access the Live Demo and FitBot UI.
+
+> Note: This app is designed to run locally. It uses your laptop webcam and local audio, so deploying to remote Streamlit hosting may not work correctly.
 
 ---
 
