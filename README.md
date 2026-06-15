@@ -146,6 +146,8 @@ streamlit run app.py
 
 The Streamlit dashboard will open at http://localhost:8501 by default. Use this to access the Live Demo and FitBot UI.
 
+> Note: Streamlit Cloud uses Python 3.14, so `requirements.txt` pins `mediapipe==0.10.35` for compatibility.
+
 > Note: This app is designed to run locally. It uses your laptop webcam and local audio, so deploying to remote Streamlit hosting may not work correctly.
 
 ---
