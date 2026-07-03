@@ -1,78 +1,44 @@
-<!-- Animated Header -->
-<h1 align="center">🏋️‍♂️ PoseGuard – AI Gym Posture Detection System</h1>
+# PoseGuard
 
-<p align="center">
-  🤖 Real-time posture detection using AI & Computer Vision
-</p>
-
-<p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=00FFAB&center=true&vCenter=true&width=700&lines=AI+Gym+Posture+Detection;Real-Time+Exercise+Analysis;Built+with+MediaPipe+%2B+ML;Prevent+Injuries+%26+Improve+Form" />
-</p>
-
-
-![Demo](screenshots/webcam.gif)
+An AI-powered gym posture detection system that watches your form in real time through a webcam and tells you when you're doing it wrong — before you hurt yourself.
 
 ---
 
-> Real-time AI + ML gym posture detection using MediaPipe and Random Forest. Detects 4 exercises with live audio feedback and an AI fitness chatbot.
+## The Problem
 
-> 📱 Mobile demo supported via Streamlit dashboard (open on phone via local network)
-
----
-
-## Features
-
-- **Auto Exercise Detection** — automatically detects squat, bicep curl, plank, lunge from body angles
-- **Real-time Posture Feedback** — classifies posture as correct or wrong using ML
-- **Audio Feedback** — speaks corrections aloud when posture is wrong
-- **FitBot AI Chatbot** — ask any workout question powered by Groq AI
-- **86%+ Accuracy** — trained on real dataset of 100,000+ samples
+Most people at the gym have no idea their form is off. A personal trainer costs money and isn't always available. Bad form over time leads to injuries that sideline you for months. PoseGuard is the always-on form checker that doesn't need a trainer in the room.
 
 ---
 
-## 🎥 Live Demo
+## What it does
 
-### 📊 Dashboard Overview
-![Dashboard](screenshots/dashboard.gif)
+Point your webcam at yourself while working out. PoseGuard detects which exercise you're doing, analyzes your body angles using MediaPipe, classifies your posture as correct or incorrect using a trained ML model, and speaks the correction out loud if something's off. There's also a FitBot chatbot for workout questions.
 
----
-
-### 🤖 FitBot Chatbot
-![Chatbot](screenshots/chatbot.gif)
-
----
-
-### 📹 Posture Detection (Webcam)
-![Webcam](screenshots/webcam.gif)
-
----
-
-### ℹ️ About Section
-![About](screenshots/about.gif)
+Supported exercises: squats, bicep curls, planks, lunges.
 
 ---
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| Body Detection | MediaPipe BlazePose |
-| ML Model | Random Forest Classifier |
-| Computer Vision | OpenCV |
-| Audio | pyttsx3 |
-| AI Chatbot | Groq API (LLaMA3) |
-| Language | Python 3.11 |
+- Python
+- MediaPipe BlazePose — body keypoint detection
+- OpenCV — video processing
+- Random Forest Classifier — posture classification
+- pyttsx3 — text-to-speech audio feedback
+- Groq API (LLaMA3) — FitBot AI chatbot
+- Streamlit — dashboard UI
 
 ---
 
-## Exercises Supported
+## Model Performance
 
-| Exercise | Detection Method |
-|----------|----------------|
-| Squat | Knee + hip angle from real image dataset |
-| Bicep Curl | Elbow angle from CSV landmark data |
-| Plank | Hip + shoulder alignment from CSV data |
-| Lunge | Knee + hip angle from CSV landmark data |
+Trained on 100,000+ samples across 4 exercises.
+
+| Metric | Score |
+|--------|-------|
+| Test Accuracy | 86% |
+| Macro Avg F1 | 89% |
+| Algorithm | Random Forest (200 trees) |
 
 ---
 
@@ -80,83 +46,57 @@
 
 ```
 PoseGuard/
-├── Dataset/
-├── models/
-│ └── poseguard_model.pkl
-├── utils/
-│ ├── pose_detector.py
-│ ├── exercise_classifier.py
-│ └── audio_feedback.py
-├── screenshots/
-│ ├── dashboard.gif
-│ ├── chatbot.gif
-│ ├── webcam.gif
-│ └── about.gif
 ├── main.py
 ├── app.py
 ├── chatbot.py
 ├── train_model.py
+├── utils/
+│   ├── pose_detector.py
+│   ├── exercise_classifier.py
+│   └── audio_feedback.py
+├── screenshots/
 ├── requirements.txt
 └── README.md
 ```
 
 ---
 
-## Installation
+## Local Setup
 
-**1. Clone the repository:**
 ```bash
 git clone https://github.com/mayankkhadse/PoseGuard.git
 cd PoseGuard
-```
-
-**2. Install dependencies:**
-```bash
-pip install -r requirements.txt
-```
-
-**If you want the full local feature set (audio + FitBot), use:**
-```bash
 pip install -r requirements-local.txt
 ```
 
-**3. Setup Groq API Key (Environment Variable):**
+Set your Groq API key:
 ```bash
-# Windows PowerShell
+# Windows
 setx GROQ_API_KEY "your_api_key_here"
 ```
 
-**4. Train the model:**
+Train the model:
 ```bash
 py -3.11 train_model.py
 ```
 
-**5. Run PoseGuard:**
+Run the Streamlit dashboard:
+```bash
+streamlit run app.py
+```
+
+Or run the raw detection:
 ```bash
 py -3.11 main.py
 ```
 
-**Run with Streamlit (recommended for the dashboard):**
-```bash
-# activate your Python environment if you use one
-pip install -r requirements.txt
-# then run the Streamlit dashboard
-streamlit run app.py
-```
-
-The Streamlit dashboard will open at http://localhost:8501 by default. Use this to access the Live Demo and FitBot UI.
-
-> Note: Streamlit Cloud uses Python 3.14, so `requirements.txt` pins `mediapipe==0.10.35` for compatibility.
-
-> Note: This app is designed to run locally. It uses your laptop webcam and local audio, so deploying to remote Streamlit hosting may not work correctly.
-
 ---
 
-## Controls
+## Controls (main.py mode)
 
 | Key | Action |
 |-----|--------|
-| A | Toggle auto / manual mode |
+| A | Toggle auto / manual exercise detection |
 | 1 | Squat mode |
 | 2 | Bicep curl mode |
 | 3 | Plank mode |
@@ -166,30 +106,21 @@ The Streamlit dashboard will open at http://localhost:8501 by default. Use this 
 
 ---
 
-## ML Model Performance
+## Note on deployment
 
-| Metric | Score |
-|--------|-------|
-| Test Accuracy | 86% |
-| Macro Avg F1 | 89% |
-| Training Samples | 100,000+ |
-| Exercises | 4 |
-| Algorithm | Random Forest (200 trees) |
+This app is designed to run locally — it needs access to your webcam and speakers. Remote hosting on Streamlit Cloud won't give you the full experience.
 
 ---
 
-## IEEE Paper
+## What's next
 
-This project is documented as an IEEE format research paper:
-`IEEE_Paper_Mayank_Khadse.docx`
+- Support for more exercises (deadlift, push-up, shoulder press)
+- Rep counter with set tracking
+- Session summary with posture score
+- Mobile support via phone camera
 
 ---
 
 ## Author
 
-**Mayank Khadse**
-B-Tech Electronics & Telecommunication Engineering
-Suryodaya College of Engineering and Technology (RTMNU), Nagpur
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin)](https://linkedin.com/in/mayank-khadse)
-[![GitHub](https://img.shields.io/badge/GitHub-black?logo=github)](https://github.com/mayankkhadse)
+Mayank Khadse — B.Tech Electronics & Telecommunication, Suryodaya College of Engineering and Technology, Nagpur
