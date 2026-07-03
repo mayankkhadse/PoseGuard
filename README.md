@@ -18,6 +18,30 @@ Supported exercises: squats, bicep curls, planks, lunges.
 
 ---
 
+---
+
+## 🎥 Live Demo
+
+### 📊 Dashboard Overview
+![Dashboard](screenshots/dashboard.gif)
+
+---
+
+### 🤖 FitBot Chatbot
+![Chatbot](screenshots/chatbot.gif)
+
+---
+
+### 📹 Posture Detection (Webcam)
+![Webcam](screenshots/webcam.gif)
+
+---
+
+### ℹ️ About Section
+![About](screenshots/about.gif)
+
+---
+
 ## Tech Stack
 
 - Python
